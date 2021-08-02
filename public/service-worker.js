@@ -12,20 +12,13 @@ const FILES_TO_CACHE = [
     "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
 ];
 
-// install
+
 self.addEventListener("install", function (evt) {
-    // pre cache image data
     evt.waitUntil(
-        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/images"))
-    );
-
-    // pre cache all static assets
+        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/images")));
     evt.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
-    );
+        caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE)));
 
-    // tell the browser to activate this service worker immediately once it
-    // has finished installing
     self.skipWaiting();
 });
 
@@ -54,18 +47,16 @@ self.addEventListener("fetch", function (evt) {
             caches.open(DATA_CACHE_NAME).then(cache => {
                 return fetch(evt.request)
                     .then(response => {
-                        // If the response was good, clone it and store it in the cache.
                         if (response.status === 200) {
                             cache.put(evt.request.url, response.clone());
                         }
-
                         return response;
                     })
                     .catch(err => {
-                        // Network request failed, try to get it from the cache.
                         return cache.match(evt.request);
                     });
-            }).catch(err => console.log(err))
+            })
+                .catch(err => console.log(err))
         );
 
         return;
