@@ -1,6 +1,6 @@
 {
   "name": "Progressive Budget Tracker PWA Application",
-  "short_name": "Budget Tracker",
+  "short_name": "Budget_Tracker",
   "icons": [
     {
       "src": "icons/icon-192x192.png",
