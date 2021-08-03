@@ -26,7 +26,7 @@ request.onsuccess = function (e) {
 };
 
 request.onerror = function (e) {
-    console.log(`Woops! ${e.target.errorCode}`);
+    console.log(e.target.errorCode);
 };
 
 const saveRecord = (record) => {
@@ -57,7 +57,7 @@ function checkDatabase() {
 
     // If the request was successful
     getAll.onsuccess = function () {
-        // If there are transactions in the store, they are "bulk added" when back online
+        // If there are transactions in the Budget Tracker store, they are bulk-added when back online
         if (getAll.result.length > 0) {
             fetch('/api/transaction/bulk', {
                 method: 'POST',
