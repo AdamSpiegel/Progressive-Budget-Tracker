@@ -49,7 +49,7 @@ function checkDatabase() {
     // Open a transaction on the Budget Tracker Store
     let transaction = db.transaction(['BudgetTrackerStore'], 'readwrite');
 
-    // Accesses the Budget Tracker Store object entered
+    // Accesses the Budget Tracker Store object entered (reference to store)
     const store = transaction.objectStore('BudgetTrackerStore');
 
     // Get all records from Budget Tracker Store and set to a variable
@@ -72,10 +72,10 @@ function checkDatabase() {
                     // If our returned response is not empty
                     if (res.length !== 0) {
                         // Open another transaction to BudgetStore with the ability to read and write
-                        transaction = db.transaction(['BudgetStore'], 'readwrite');
+                        transaction = db.transaction(['BudgetTrackerStore'], 'readwrite');
 
                         // Assign the current store to a variable
-                        const currentStore = transaction.objectStore('BudgetStore');
+                        const currentStore = transaction.objectStore('BudgetTrackerStore');
 
                         // Clear existing entries because our bulk add was successful
                         currentStore.clear();
@@ -86,28 +86,5 @@ function checkDatabase() {
     };
 }
 
-request.onsuccess = function (e) {
-    console.log('success');
-    db = e.target.result;
-
-    // Check if app is online before reading from db
-    if (navigator.onLine) {
-        console.log('Backend online! 🗄️');
-        checkDatabase();
-    }
-};
-
-const saveRecord = (record) => {
-    console.log('Save record invoked');
-    // Create a transaction on the BudgetStore db with readwrite access
-    const transaction = db.transaction(['BudgetStore'], 'readwrite');
-
-    // Access your BudgetStore object store
-    const store = transaction.objectStore('BudgetStore');
-
-    // Add record to your store with add method.
-    store.add(record);
-};
-
-// // Listen for app coming back online
-// window.addEventListener('online', checkDatabase);
+// Listen for app coming back online, referencing back to checkDatabase function, to insert all offline transactions into DB
+window.addEventListener('online', checkDatabase);
