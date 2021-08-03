@@ -46,18 +46,18 @@ const saveRecord = (record) => {
 function checkDatabase() {
     console.log('check db invoked');
 
-    // Open a transaction on your BudgetStore db
-    let transaction = db.transaction(['BudgetStore'], 'readwrite');
+    // Open a transaction on the Budget Tracker Store
+    let transaction = db.transaction(['BudgetTrackerStore'], 'readwrite');
 
-    // access your BudgetStore object
+    // Accesses the Budget Tracker Store object entered
     const store = transaction.objectStore('BudgetTrackerStore');
 
-    // Get all records from store and set to a variable
+    // Get all records from Budget Tracker Store and set to a variable
     const getAll = store.getAll();
 
     // If the request was successful
     getAll.onsuccess = function () {
-        // If there are items in the store, we need to bulk add them when we are back online
+        // If there are transactions in the store, they are "bulk added" when back online
         if (getAll.result.length > 0) {
             fetch('/api/transaction/bulk', {
                 method: 'POST',
