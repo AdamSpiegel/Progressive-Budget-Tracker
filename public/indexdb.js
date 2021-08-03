@@ -1,7 +1,7 @@
 let db;
 
 // Create a new db request for a "Budget Tracker" database and creates store (on line 12).
-const request = indexedDB.open('BudgetTrackerDB', 1);
+const request = indexedDB.open('Budget_Tracker', 1);
 
 request.onupgradeneeded = function (e) {
     console.log('Upgrade needed in IndexDB');
