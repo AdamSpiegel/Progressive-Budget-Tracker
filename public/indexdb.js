@@ -1,26 +1,46 @@
 let db;
-let budgetVersion;
 
-// Create a new db request for a "budget" database.
-const request = indexedDB.open('BudgetDB', budgetVersion || 21);
+// Create a new db request for a "Budget Tracker" database and creates store.
+const request = indexedDB.open('BudgetTrackerDB', 1);
 
 request.onupgradeneeded = function (e) {
     console.log('Upgrade needed in IndexDB');
 
-    const { oldVersion } = e;
-    const newVersion = e.newVersion || db.version;
-
-    console.log(`DB Updated from version ${oldVersion} to ${newVersion}`);
-
     db = e.target.result;
 
     if (db.objectStoreNames.length === 0) {
-        db.createObjectStore('BudgetStore', { autoIncrement: true });
+        db.createObjectStore('BudgetTrackerStore', { autoIncrement: true });
+    }
+};
+
+// Gets reference to DB itself, console logs if backend connection successful
+request.onsuccess = function (e) {
+    console.log('success');
+
+    db = e.target.result;
+
+    if (navigator.online) {
+        console.log('Backend Online!');
+        checkDatabase();
     }
 };
 
 request.onerror = function (e) {
     console.log(`Woops! ${e.target.errorCode}`);
+};
+
+const saveRecord = (record) => {
+    console.log('Budget Transaction Record Invoked!');
+
+    // Creates a transaction on the "Budget Tracker Store" w/ readwrite access
+    const transaction = db.transaction(['BudgetTrackerStore'], 'readwrite');
+
+    // Accesses the Budget Tracker Store itself
+    const store = transaction.objectStore('BudgetTrackerStore');
+
+    // Uses the .add method to add record to the Budget Tracker Store
+    store.add(record);
+
 };
 
 function checkDatabase() {
@@ -30,7 +50,7 @@ function checkDatabase() {
     let transaction = db.transaction(['BudgetStore'], 'readwrite');
 
     // access your BudgetStore object
-    const store = transaction.objectStore('BudgetStore');
+    const store = transaction.objectStore('BudgetTrackerStore');
 
     // Get all records from store and set to a variable
     const getAll = store.getAll();
@@ -89,4 +109,5 @@ const saveRecord = (record) => {
     store.add(record);
 };
 
-// Listen for app coming back online
+// // Listen for app coming back online
+// window.addEventListener('online', checkDatabase);
