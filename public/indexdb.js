@@ -1,6 +1,6 @@
 let db;
 
-// Create a new db request for a "Budget Tracker" database and creates store.
+// Create a new db request for a "Budget Tracker" database and creates store (on line 12).
 const request = indexedDB.open('BudgetTrackerDB', 1);
 
 request.onupgradeneeded = function (e) {
@@ -13,7 +13,7 @@ request.onupgradeneeded = function (e) {
     }
 };
 
-// Gets reference to DB itself, console logs if backend connection successful
+// Gets reference to DB itself, console logs if backend connection is successful and online
 request.onsuccess = function (e) {
     console.log('success');
 
