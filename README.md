@@ -1,68 +1,106 @@
-# Progressive-Budget-Tracker
+# Progressive-Budget-Tracker :dollar::moneybag:
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Table of Contents
+## Table of Contents :books:
 
-1.  [Description](#description)
-2.  [Installation](#installation)
+1.  [Description](#Description)
+2.  [Installation](#Installation)
 3.  [Project Usage](#Project-Usage)
 4.  [License Information](#License-Information)
 5.  [Contributors](#Project-Contributors)
 6.  [Testing Instructions](#Testing-Instructions)
-7.  [Screenshots](#Screenshots)
-8.  [Contact Info](#Questions)
+7.  [Heroku Application Link](#Heroku-Application-Link)
+8.  [Screenshots](#Screenshots)
+9.  [Contact Info](#Questions)
 
-## Description
+<br>
 
-A Budget Tracker application which allows for the user for online and offline functionality. The user is able to add expenses and deposits to their budget, with our without a connection. The application allows for the user to maintain an ongoing account balance, without worry of an online connection.
+## Description :money_with_wings:
 
-Dependencies:
+This Progressive Web Application is a Budget Tracker which allows for the user to enter transactions (by adding or subtracting funds w/ a titled transaction). Regardless if the user is connected online or if they are offline, the application allows the user's transactions to be saved and referred back to later. The application allows for the user to maintain an ongoing account balance, without worry of an online connection.
 
-The app utilizes Heroku, MonogoDB, Mongoose, Express and Morgan. The workout tracker intakes all user data including weights, sets, reps, and duration then compiles them to a stats page which utilizes charts.js to display the user data over the past 7 workouts. The data is stored and displayed as a card on the dashboard otherwise.
+<br>
 
-## Installation
+## Installation :hammer_and_wrench:
 
-The following steps were built out in order to create this functional workout tracker:
+_Application Dependencies Include_
 
-_Starter code was provided for this project_
+- Compression
+- Express
+- Lite-Server
+- Mongoose
+- Morgan
+- MongoDB Atlas
+- Heroku
 
-1. Building off the starter code for this web application, an initial **server.js** file was constructed. This file establishes our connection to our Mongoose database and sets up the necessary packages which the workout tracker runs on including: Express, Morgan, Mongoose and requiring our API and HTML Routes.
+_Files Created to Make PWA Budget Tracker Functional Include_
 
-2. A models folder was created next which includes the **workouts.js** and **index.js** files. The workouts.js is our "Mongoose Schema" for this project. It outlines what will be stored in the Mongoose Database, while intaking the current date. Fields objects collected include exercise type, exercise name, durations, weight, sets and reps. The index.js file is just exporting the workouts.js file.
+- **manifest.webmanifest** - Provides information about this PWA in a JSON text file which is necessary for the app to be downloaded and be presented to the user similarly to the native app. (i.e you can download the app to your home screen of whatever device and have the same clean presentation)
 
-3. A routes folder was created next to include our **apiRoutes.js** and **htmlRoutes.js** files. The html routes which were built out utilizing express and path to fetch the (3) html pages associated with the workouts. The apiRoutes.js file uses the Mongoose data base and routes via (router.put/get/post) to obtain the user workout data.
+- **service-worker.js** - This file is a script which the browser runs in the background that is essentially a JavaScript file that caches all of the Budget Trackers data and retrieves resources from the cache. You can view the included files in the app's cache here (all the public folders).
 
-_Please note_, these routes were to be built out with "aggregation" via $addFields and $sum. This new functionality proved difficult to get all my routes working correctly, therefore these are still being developed for complete functionality.
+- **indexdb.js** - This file allows for the Budget Tracker to have dynamic content by allowing for the user to input withdraws or deposits, offline, and have those transactions automatically uploaded when back online. This file works with the Budget Tracker DB and creates a Budget Tracker Store to hold all of the inputted user transactions. In essence, this file creates a "waiting room" for the transactions to interact with the application.
 
-## Project Usage
+_Additional Install Instructions Include_
 
-An everyday health and wellness tracker for a user's cardio and weight training workout sessions. Great to view for progress over the past 7 workouts and storing user workout info via a Mongoose Database.
+- Run NPM Install to utilize package.json dependencies
+- server.js file was updated to reflect a const PORT with the process.env path, along with the proper syntax to connect to our Mongoose DB.
+- index.html file = link to manifest.webmanifest was included in head of document, along with scripts for the indexdb.js and service worker (both at the base of the index.html)
+- Utilizing MongoDB Atlas and Heroku, a Budget_Tracker database was created and then linked for proper deployment.
 
-## License Information
+<br>
+
+## Project Usage :heavy_dollar_sign::bar_chart:
+
+_User Story_<br>
+
+AS AN avid traveller
+I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
+SO THAT my account balance is accurate when I am traveling.<br>
+
+Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.<br>
+
+The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
+
+<br>
+
+## License Information :ticket::copyright:
 
 The MIT License is a permissive free software license originating at the Massachusetts Institute of Technology in the late 1980s. As a permissive license, it puts only very limited restriction on reuse and has, therefore, high license compatibility.
 
-## Project Contributors
+<br>
 
-Adam Spiegel
+## Project Contributors :man_technologist:
 
-## Testing Instructions
+Adam Spiegel<br>
+Full Stack Web Developer<br>
+https://www.linkedin.com/in/adam-spiegel-3086687/
 
-Follow These Steps:
+<br>
 
-1. If running locally, remember to run npm install, mongod/mongosh, and then connect to localhost:3001.
-2. Otherwise, follow the following Heroku Link:
+## Testing Instructions :technologist:
 
-**https://guarded-tundra-05094.herokuapp.com/**
+1. Follow the Heroku app link located below.
+2. Enter any transactions, withdraws or deposits, and you should see the chart auto populate your data.
+3. Go into browser dev tools, and disconnect from network. Try adding in withdraws and deposits. These will be saved via the indexdb.js file, and when you reconnect via the dev tools, the transactions will automatically load to the Budget_Tracker Mongoose database.
+4. Please feel free to clone the repo to test on your local machine. You will need to NPM I for the dependencies, and make sure you are connected to Mongod to run properly.
 
-## Screenshots
+<br>
+
+## Heroku Application Link :computer::computer_mouse:
+
+### **https://warm-fortress-83074.herokuapp.com/**
+
+<br>
+
+## Screenshots - Online & Offline :chart_with_upwards_trend:
 
 ![Screenshot1](Screenshot1.png)
 
 ![Screenshot2](Screenshot2.png)
 
-## Questions?
+## Questions? :raising_hand_man:
 
 ### Please find my contact information below to reach out!
 
