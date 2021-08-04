@@ -104,11 +104,11 @@ https://www.linkedin.com/in/adam-spiegel-3086687/
 
 ## Screenshots - Online & Offline Functionality :chart_with_upwards_trend::camera_flash:
 
-![Screenshot1](images\Screenshot1.png)
+![Screenshot1](Screenshot1.png)
 
-![Screenshot2](images\Screenshot2.png)
+![Screenshot2](Screenshot2.png)
 
-![Screenshot3](images\Screenshot3.png)
+![Screenshot3](Screenshot3.png)
 
 <br>
 
@@ -116,6 +116,6 @@ https://www.linkedin.com/in/adam-spiegel-3086687/
 
 _shows data being inputted offline, then re-connected online, when the data is then synced to the Mongod DB automatically_
 
-![Screenshot4](images\Screenshot4.jpg)
+![Screenshot4](Screenshot4.jpg)
 
-![Screenshot5](images\Screenshot5.jpg)
+![Screenshot5](Screenshot5.jpg)
