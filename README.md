@@ -2,27 +2,27 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Table of Contents :books:
+## Table of Contents :books::card_index_dividers:
 
 1.  [Description](#Description)
 2.  [Installation](#Installation)
 3.  [Project Usage](#Project-Usage)
 4.  [License Information](#License-Information)
-5.  [Contributors](#Project-Contributors)
-6.  [Testing Instructions](#Testing-Instructions)
-7.  [Heroku Application Link](#Heroku-Application-Link)
-8.  [Screenshots](#Screenshots)
-9.  [Contact Info](#Questions)
+5.  [Testing Instructions](#Testing-Instructions)
+6.  [Heroku Application Link](#Heroku-Application-Link)
+7.  [Contributors](#Project-Contributors)
+8.  [Contact Info](#Questions)
+9.  [Screenshots](#Screenshots)
 
 <br>
 
-## Description :money_with_wings:
+## Description :money_with_wings::credit_card:
 
 This Progressive Web Application is a Budget Tracker which allows for the user to enter transactions (by adding or subtracting funds w/ a titled transaction). Regardless if the user is connected online or if they are offline, the application allows the user's transactions to be saved and referred back to later. The application allows for the user to maintain an ongoing account balance, without worry of an online connection.
 
 <br>
 
-## Installation :hammer_and_wrench:
+## Installation :hammer_and_wrench::gear:
 
 _Application Dependencies Include_
 
@@ -71,14 +71,6 @@ The MIT License is a permissive free software license originating at the Massach
 
 <br>
 
-## Project Contributors :man_technologist:
-
-Adam Spiegel<br>
-Full Stack Web Developer<br>
-https://www.linkedin.com/in/adam-spiegel-3086687/
-
-<br>
-
 ## Testing Instructions :technologist:
 
 1. Follow the Heroku app link located below.
@@ -94,14 +86,36 @@ https://www.linkedin.com/in/adam-spiegel-3086687/
 
 <br>
 
-## Screenshots - Online & Offline :chart_with_upwards_trend:
+## Project Contributor :man_technologist::fountain_pen:
 
-![Screenshot1](Screenshot1.png)
+Adam Spiegel<br>
+Full Stack Web Developer<br>
+https://www.linkedin.com/in/adam-spiegel-3086687/
 
-![Screenshot2](Screenshot2.png)
+<br>
 
-## Questions? :raising_hand_man:
+## Questions? :raising_hand_man::grey_question:
 
 ### Please find my contact information below to reach out!
 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:AdamSpiegel23@gmail.com) [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AdamSpiegel)
+
+<br>
+
+## Screenshots - Online & Offline Functionality :chart_with_upwards_trend::camera_flash:
+
+![Screenshot1](images\Screenshot1.png)
+
+![Screenshot2](images\Screenshot2.png)
+
+![Screenshot3](images\Screenshot3.png)
+
+<br>
+
+## Offline to Online :electric_plug::signal_strength:
+
+_shows data being inputted offline, then re-connected online, when the data is then synced to the Mongod DB automatically_
+
+![Screenshot4](images\Screenshot4.jpg)
+
+![Screenshot5](images\Screenshot5.jpg)
